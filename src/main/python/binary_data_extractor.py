@@ -13,19 +13,20 @@ print(config["DEFAULT"]["CSVOutputFolder"])
 pickle_file = config["DEFAULT"]["BinaryFilePath"]
 csv_output_folder = config["DEFAULT"]["CSVOutputFolder"]
 
-def write_csv(file_name, column_name):
+def write_1d_csv(file_name, column_name, data):
 
-    with open(csv_output_folder + '\\ACC.csv', 'w', encoding='UTF8', newline='') as f:
+    with open(csv_output_folder + file_name, 'w', encoding='UTF8', newline='') as f:
         writer = csv.writer(f)
 
         header = [column_name]
-        data = [111, 222]
 
         # write the header
         writer.writerow(header)
 
-        # write the data
-        writer.writerow(data)
+        for e in data:
+            record = [e]
+            # write the data
+            writer.writerow(record)
 
 def main():
 
@@ -49,9 +50,10 @@ def main():
         print(x)
     print(label.ndim)
 
-    for x in label:
-        print(x)
+    #for x in label:
+        #print(x)
 
+    write_1d_csv("\\LABEL.csv", "label", label)
 
     sys.exit(0)
 
