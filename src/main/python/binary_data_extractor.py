@@ -38,17 +38,7 @@ def write_1d_csv(file_name, column_name, data):
             # write the data
             writer.writerow(record)
 
-def main():
-
-    # this step is required due to incompatibility of pickle objects created with python 2
-    with open(pickle_file, 'rb') as f:
-        sensor_dict = pickle.load(f, encoding="bytes")
-
-    # inspect/reverse engineer the internal structure and content of the dictionary dataset
-    for key, value in sensor_dict.items():
-        print(key, value)
-        print(sensor_dict[key])
-
+def extract_label(sensor_dict):
 
     print(type(sensor_dict[str.encode("label")]))
 
@@ -61,6 +51,21 @@ def main():
     print(label.ndim)
 
     write_1d_csv("\\LABEL.csv", "label", label)
+
+def main():
+
+    # this step is required due to incompatibility of pickle objects created with python 2
+    with open(pickle_file, 'rb') as f:
+        sensor_dict = pickle.load(f, encoding="bytes")
+
+    # inspect/reverse engineer the internal structure and content of the dictionary dataset
+    for key, value in sensor_dict.items():
+        print(key, value)
+        print(sensor_dict[key])
+
+    extract_label(sensor_dict)
+
+
 
     sys.exit(0)
 
