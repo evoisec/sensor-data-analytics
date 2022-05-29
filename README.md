@@ -16,14 +16,18 @@ My business interpreatation is that it is hoped that the CORRELATED sensor signa
 
 The sensor timeseries are complemented with Reference data consisting of Labels of Type of Activities performed by the test subject during specific time periods within sensor signal timeseries dataset
 
-The presence of several different sensor signal, time series datasets requires a method/algorithm for their synchronization/join   
+The presence of several CORRELATED, different, sensor signal, time series datasets requires a method/algorithm for their synchronization/join, to enable their joined analysis / study with the business objective of improvement PPG   
 
-Cross Dataset Indexing - Indexing/Synchronization/Join Across Datasets
+This would require methods / algorithms for Data Indexing and Joining 
 
-Therefore the Heart Rate (as the key subject of research/"business analytics" here) is going to be used as the Ground Truth or will provide the Main Index 
+# Cross Dataset Indexing - Indexing/Synchronization/Join Across Datasets
 
-Internal Dataset Indexing - Indexing within Single Dataset
+MAIN INDEX - The Heart Rate (as the key subject of research/"business analytics" here, due to the nature of PPG) is going to be used as the Ground Truth or will provide the Main Index 
+
+# Internal Dataset Indexing - Indexing within Single Dataset
 
 Then, there is a need for Data Indexing method/algorithm within each sensor signal timeseries dataset 
 
-Binary Data Extractor
+### System Architecture
+
+## Binary Data Extractor
