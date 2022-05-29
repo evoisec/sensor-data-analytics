@@ -20,7 +20,9 @@ The "business" analytics objective of the project is improvement of Photoplethys
 
 Photoplethysmography is still a technically challenging area and hence to enable further research and data analysis, the Photoplethysmography signal data is complemented with CORRELATED/supporting signal datasets of other modalities - body worn accelerometer, temperature, respiration, etc sensor signal timeseries datasets 
 
-My business interpreatation is that it is hoped that the CORRELATED sensor signal datasets, when used together with the PPG signal dataset, would improve the PPG sensor design and signal processing. The correlated signal data would provide CORRECTIVE information enabling that. Hence the alignment of these timeseries dataset becomes key data processing task. This is further complicated by the fact that the signal timeseries lack absolute timestamps for the individual data points they contain and also the fact that the signals are sampled/measured at different frequencies (as expressed in Hz) 
+My business interpretation is that it is hoped that the CORRELATED sensor signal datasets, when used together with the PPG signal dataset, would improve the PPG sensor design and signal processing. The correlated signal data would provide CORRECTIVE information enabling that. Hence the alignment of these timeseries dataset becomes key data processing task. This is further complicated by the fact that the signal timeseries lack absolute timestamps for the individual data points they contain and also the fact that the signals are sampled/measured at different frequencies (as expressed in Hz) 
+
+Once correlated, the signal timeseries can also then be used to build a common (spark) dataframe, which would enable Multivariete Analytics involving all variables/columns of the dataset  
 
 The sensor timeseries are complemented with Reference data consisting of Labels of Type of Activities performed by the test subject during specific time periods within sensor signal timeseries dataset
 
@@ -39,6 +41,22 @@ Then, there is a need for Data Indexing method/algorithm within each sensor sign
 ## Physical Dataset Catalogue
 
 ## Functional Architecture
+
+Export the timeseries from the binary python dictionary dataset 
+
+Perform internal, sensor timeseries indexing and then derive and add the MAIN/CROSS-DATASET INDEX
+
+Build a common dataframe with all signal timeseries for all test subjects, enriched with the Reference Data about the subjects and the Activities performed by the subjects 
+
+Aggregations - use the common dataframe as a base/input to aggregate it in the following ways:
+
+a) Calculate min,max,avg,standard deviation of ECG Heart Rate by Subject by Activity
+
+b) Calculate max temperature by 1 minute time intervals, by subject (subject here can be viewed as a Client or Trading Desk and 1 minute time period can be viewed as e.g. their VAR for calendar period / as of date) 
+
+Statistical Analysis - statistical summaries of the timeseries, correlations between the timeseries etc
+
+Machine Learning Analytics - fit linear regression and use the learned coefficients to assess the influence of all sensor modalities and subject anthropometric attributes on potentially improving the precision of PPG 
 
 ## Technical System Architecture
 
