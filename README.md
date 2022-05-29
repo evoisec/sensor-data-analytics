@@ -8,7 +8,7 @@ b) Activity Label Timeseries Datasets (timeseries of Activities perfomed by the 
 
 Reference Datasets:
 
-a) Activity Labels
+a) Activity Labels - used to enrich/tag the Sensor Signal Timeseries data points as belonging to specific type of Subject Activity 
 
 b) Test Subject Anthropometric Data and Test Subject ID
 
