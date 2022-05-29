@@ -10,7 +10,9 @@ Reference Datasets
 
 The "business" analytics objective of the project is improvement of Photoplethysmography (PPG) - optical method widely used nowadays for continuous heart rate monitoring (ie instead of ECG).
 
-Photoplethysmography is still a technically challenging area and hence to enable further research and data analysis, the Photoplethysmography signal data is complemented with body worn accelerometer, temperature, respiration, etc sensor signal timeseries datasets 
+Photoplethysmography is still a technically challenging area and hence to enable further research and data analysis, the Photoplethysmography signal data is complemented with CORRELATED/supporting signal datasets of other modalities - body worn accelerometer, temperature, respiration, etc sensor signal timeseries datasets 
+
+My business interpreatation is that it is hoped that the CORRELATED sensor signal datasets, when used together with the PPG signal datasets, would improve the PPG sensor design and signal processing. The correlated signal data would provide CORRECTIVE information enabling that 
 
 The sensor timeseries are complemented with Reference data consisting of Labels of Type of Activities performed by the test subject during specific time periods within sensor signal timeseries dataset
 
