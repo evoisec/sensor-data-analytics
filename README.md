@@ -12,6 +12,8 @@ a) Activity Labels - used to enrich/tag the Sensor Signal Timeseries data points
 
 b) Test Subject Anthropometric Data and Test Subject ID
 
+click on the following image to enlarge:
+
 ![Data Model](https://github.com/evoisec/sensor-data-analytics/blob/master/doc/data-model2.jpg)
 
 ## Data Model Analysis
