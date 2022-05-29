@@ -72,7 +72,7 @@ Machine Learning Analytics - fit linear regression and use the learned coefficie
 
 ### Binary Data Extractor
 
-The extraction of timeseries datasets from Python binary files (Serialized python dictionary object) to CSV files is performed by Python ETL Pipeline
+The extraction of timeseries datasets from Python binary files in pickle format (Serialized python dictionary object) to CSV files is performed by (non-spark) Python ETL Pipeline
 
 This is a data pre-processing step
 
@@ -80,6 +80,6 @@ https://github.com/evoisec/sensor-data-analytics/tree/master/src/main/python
 
 ### Spark/Databricks ETL and Analytics Pipeline Jobs
 
-The rest of the Functionality of the solution is implemented with Spark/Databricks ETL Jobs
+The rest of the Functionality of the solution is implemented with Spark/Databricks ETL Jobs written in scala
 
 https://github.com/evoisec/sensor-data-analytics/tree/master/src/main/scala
