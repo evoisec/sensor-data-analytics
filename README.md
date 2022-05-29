@@ -36,7 +36,11 @@ MAIN INDEX - The Heart Rate (as the key subject of research/"business analytics"
 
 Then, there is a need for Data Indexing method/algorithm within each sensor signal timeseries dataset. As that internal index, would then be further transformed and aligned with the MAIN INDEX 
 
-## System Architecture
+## Physical Dataset Catalogue
+
+## Functional Architecture
+
+## Technical System Architecture
 
 ### Binary Data Extractor
 
