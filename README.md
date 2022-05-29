@@ -1,8 +1,11 @@
 ## Data Model
 
-Business Transaction Datasets - Body Sensor Signal Timeseries Datasets (a form of "Business Transaction" datasets)
+"Business Transaction" timeseries Datasets:
+    a) Body Sensor Signal Timeseries Datasets (a form of "Business Transaction" datasets)
+    b) Activity Labels Timeseries Datasets (timeseries of Lables which in turn are a form of Reference Data)
 
-Reference Datasets
+Reference Datasets:
+    a)
 
 ## Data Analysis
 
