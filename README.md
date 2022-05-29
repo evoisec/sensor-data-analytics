@@ -30,7 +30,7 @@ This would require methods / algorithms for Data Indexing and Joining, overcomin
 
 #### Cross Dataset Indexing - Indexing/Synchronization/Join Across Datasets
 
-MAIN INDEX - The Heart Rate (as the key subject of research/"business analytics" here, due to the nature of PPG) is going to be used as the Ground Truth or will provide the Main Index 
+MAIN INDEX - The Heart Rate (as the key subject of research/"business analytics" here, due to the nature of PPG) from the ECG Sensor is going to be used as the Ground Truth or will provide the Main Index 
 
 #### Internal Dataset Indexing - Indexing within Single Dataset
 
