@@ -5,24 +5,20 @@ import numpy
 import configparser
 import csv
 
-def main():
+config = configparser.ConfigParser()
+config.read(os.path.dirname(__file__) + '\\bde.ini')
+print(config["DEFAULT"]["BinaryFilePath"])
+print(config["DEFAULT"]["CSVOutputFolder"])
 
-    config = configparser.ConfigParser()
-    config.read(os.path.dirname(__file__) + '\\bde.ini')
-    print(config["DEFAULT"]["BinaryFilePath"])
-    print(config["DEFAULT"]["CSVOutputFolder"])
+pickle_file = config["DEFAULT"]["BinaryFilePath"]
+csv_output_folder = config["DEFAULT"]["CSVOutputFolder"]
 
-    pickle_file = config["DEFAULT"]["BinaryFilePath"]
-    csv_output_folder = config["DEFAULT"]["CSVOutputFolder"]
-
-    # this step is required due to incompatibility of pickle objects created with python 2
-    with open(pickle_file, 'rb') as f:
-        sensor_dict = pickle.load(f, encoding="bytes")
+def write_csv(file_name, column_name):
 
     with open(csv_output_folder + '\\ACC.csv', 'w', encoding='UTF8', newline='') as f:
         writer = csv.writer(f)
 
-        header = ["ACC", "BBB"]
+        header = [column_name]
         data = [111, 222]
 
         # write the header
@@ -31,20 +27,16 @@ def main():
         # write the data
         writer.writerow(data)
 
-    sys.exit(0)
+def main():
+
+    # this step is required due to incompatibility of pickle objects created with python 2
+    with open(pickle_file, 'rb') as f:
+        sensor_dict = pickle.load(f, encoding="bytes")
 
     # inspect/reverse engineer the internal structure and content of the dictionary dataset
     for key, value in sensor_dict.items():
         print(key, value)
         print(sensor_dict[key])
-
-    print(sensor_dict[str.encode("signal")][str.encode("chest")][str.encode("ACC")])
-    print(type(sensor_dict[str.encode("signal")][str.encode("chest")][str.encode("ACC")]))
-
-    ACC = sensor_dict[str.encode("signal")][str.encode("chest")][str.encode("ACC")]
-    print(ACC.shape)
-    print(ACC.ndim)
-
 
 
     print(type(sensor_dict[str.encode("label")]))
@@ -55,11 +47,24 @@ def main():
     len_tuple = label.shape
     for x in len_tuple:
         print(x)
-
     print(label.ndim)
 
     for x in label:
         print(x)
+
+
+    sys.exit(0)
+
+    print(sensor_dict[str.encode("signal")][str.encode("chest")][str.encode("ACC")])
+    print(type(sensor_dict[str.encode("signal")][str.encode("chest")][str.encode("ACC")]))
+
+    ACC = sensor_dict[str.encode("signal")][str.encode("chest")][str.encode("ACC")]
+    print(ACC.shape)
+    print(ACC.ndim)
+
+
+
+
 
     print(sensor_dict[str.encode("activity")])
     activity = sensor_dict[str.encode("activity")]
