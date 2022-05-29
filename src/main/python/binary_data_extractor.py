@@ -2,8 +2,8 @@ import pickle
 import sys, os
 # required due to the presence of numpy arrays in the dictionary data structure
 import numpy
-
 import configparser
+import csv
 
 def main():
 
@@ -18,6 +18,18 @@ def main():
     # this step is required due to incompatibility of pickle objects created with python 2
     with open(pickle_file, 'rb') as f:
         sensor_dict = pickle.load(f, encoding="bytes")
+
+    with open(csv_output_folder + '\\ACC.csv', 'w', encoding='UTF8', newline='') as f:
+        writer = csv.writer(f)
+
+        header = ["ACC", "BBB"]
+        data = [111, 222]
+
+        # write the header
+        writer.writerow(header)
+
+        # write the data
+        writer.writerow(data)
 
     sys.exit(0)
 
