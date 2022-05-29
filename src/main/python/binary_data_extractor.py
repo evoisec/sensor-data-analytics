@@ -10,8 +10,10 @@ def main():
     config = configparser.ConfigParser()
     config.read(os.path.dirname(__file__) + '\\bde.ini')
     print(config["DEFAULT"]["BinaryFilePath"])
+    print(config["DEFAULT"]["CSVOutputFolder"])
 
     pickle_file = config["DEFAULT"]["BinaryFilePath"]
+    csv_output_folder = config["DEFAULT"]["CSVOutputFolder"]
 
     # this step is required due to incompatibility of pickle objects created with python 2
     with open(pickle_file, 'rb') as f:
