@@ -1,12 +1,12 @@
-### Data Model
+## Data Model
 
 Business Transaction Datasets - Body Sensor Signal Timeseries Datasets (a form of "Business Transaction" datasets)
 
 Reference Datasets
 
-### Data Analysis
+## Data Analysis
 
-## Data Indexing/Positioning inside Dataset, Dataset Synchronization and Dataset Join Algorithms 
+### Data Indexing/Positioning inside Dataset, Dataset Synchronization and Dataset Join Algorithms 
 
 The "business" analytics objective of the project is improvement of Photoplethysmography (PPG) - optical method widely used nowadays for continuous heart rate monitoring (ie instead of ECG).
 
