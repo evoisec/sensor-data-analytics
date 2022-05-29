@@ -4,7 +4,7 @@
 
 a) Body Sensor Signal Timeseries Datasets (a form of "Business Transaction" datasets)
 
-b) Activity Label Timeseries Datasets (timeseries of Activities perfomed by the Subjects over time - Activity Labels which in turn, taken on their own are a form of Reference Data)
+b) Activity Label Timeseries Datasets (timeseries of Activities performed by the Subjects over time - Activity Labels which in turn, taken on their own are a form of Reference Data)
 
 Reference Datasets:
 
@@ -40,11 +40,11 @@ Then, there is a need for Data Indexing method/algorithm within each sensor sign
 
 ## Physical Dataset Catalogue
 
-## Functional Architecture
+## Use Case Scenarios and Functional Architecture 
 
 Export the timeseries from the binary python dictionary dataset 
 
-Perform internal, sensor timeseries indexing and then derive and add the MAIN/CROSS-DATASET INDEX
+Perform internal, sensor timeseries indexing and then derive and add the MAIN/CROSS-DATASET INDEX for each timeseries
 
 Build a common dataframe with all signal timeseries for all test subjects, enriched with the Reference Data about the subjects and the Activities performed by the subjects 
 
