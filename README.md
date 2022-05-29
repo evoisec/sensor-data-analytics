@@ -26,7 +26,7 @@ The sensor timeseries are complemented with Reference data consisting of Labels 
 
 The presence of several CORRELATED, different, sensor signal, time series datasets requires a method/algorithm for their synchronization/join, to enable their joined analysis / study with the business objective of improvement PPG   
 
-This would require methods / algorithms for Data Indexing and Joining overcoming the lack of absolute timestamps for individual data points and different signal sampling/measurement frequencies
+This would require methods / algorithms for Data Indexing and Joining, overcoming the lack of absolute timestamps for individual data points and the different signal sampling/measurement frequencies
 
 #### Cross Dataset Indexing - Indexing/Synchronization/Join Across Datasets
 
