@@ -11,11 +11,13 @@ def main():
     config.read(os.path.dirname(__file__) + '\\bde.ini')
     print(config["DEFAULT"]["BinaryFilePath"])
 
-    sys.exit(0)
+    pickle_file = config["DEFAULT"]["BinaryFilePath"]
 
     # this step is required due to incompatibility of pickle objects created with python 2
-    with open('E:\\project\\data\\PPG_FieldStudy\\S1\\S1.pkl', 'rb') as f:
+    with open(pickle_file, 'rb') as f:
         sensor_dict = pickle.load(f, encoding="bytes")
+
+    sys.exit(0)
 
     # inspect/reverse engineer the internal structure and content of the dictionary dataset
     for key, value in sensor_dict.items():
