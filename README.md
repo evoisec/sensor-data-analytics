@@ -1,4 +1,4 @@
-##Data Indexing/Positioning inside Dataset, Dataset Synchronization and Dataset Join Algorithms 
+## Data Indexing/Positioning inside Dataset, Dataset Synchronization and Dataset Join Algorithms 
 
 The business objective of the project is Photoplethysmography (PPG) - optical method widely used nowadays for continuous heart rate monitoring.
 
