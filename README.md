@@ -31,3 +31,5 @@ Then, there is a need for Data Indexing method/algorithm within each sensor sign
 ## System Architecture
 
 ### Binary Data Extractor
+
+### Spark/Databricks ETL and Analytics Pipeline Jobs
