@@ -1,11 +1,16 @@
 ## Data Model
 
 "Business Transaction" timeseries Datasets:
-    a) Body Sensor Signal Timeseries Datasets (a form of "Business Transaction" datasets)
-    b) Activity Labels Timeseries Datasets (timeseries of Lables which in turn are a form of Reference Data)
+
+a) Body Sensor Signal Timeseries Datasets (a form of "Business Transaction" datasets)
+
+b) Activity Label Timeseries Datasets (timeseries of Activities perfomed by the Subjects over time - Activity Labels which in turn, taken on their own are a form of Reference Data)
 
 Reference Datasets:
-    a)
+
+a) Activity Labels
+
+b) Test Subject Anthropometric Data and Test Subject ID
 
 ## Data Analysis
 
