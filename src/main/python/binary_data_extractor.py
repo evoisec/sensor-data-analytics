@@ -1,9 +1,17 @@
 import pickle
-import sys
+import sys, os
 # required due to the presence of numpy arrays in the dictionary data structure
 import numpy
 
+import configparser
+
 def main():
+
+    config = configparser.ConfigParser()
+    config.read(os.path.dirname(__file__) + '\\bde.ini')
+    print(config["DEFAULT"]["BinaryFilePath"])
+
+    sys.exit(0)
 
     # this step is required due to incompatibility of pickle objects created with python 2
     with open('E:\\project\\data\\PPG_FieldStudy\\S1\\S1.pkl', 'rb') as f:
@@ -21,7 +29,7 @@ def main():
     print(ACC.shape)
     print(ACC.ndim)
 
-    sys.exit(0)
+
 
     print(type(sensor_dict[str.encode("label")]))
 
