@@ -54,7 +54,9 @@ Export the timeseries from the binary python dictionary dataset
 
 Perform internal, sensor timeseries indexing and then derive and add the MAIN/CROSS-DATASET INDEX for each timeseries
 
-Build a common dataframe with all signal timeseries for all test subjects, enriched with the Reference Data about the subjects and the Activities performed by the subjects 
+Build a common dataframe with all signal timeseries (averaged by using a sliding window of 8 seconds, shifted by 2 seconds) for all test subjects, enriched with the Reference Data about the subjects and the Activities performed by the subjects 
+
+Build a common dataframe with all signal timeseries (non-averaged, original values) for all test subjects, enriched with the Reference Data about the subjects and the Activities performed by the subjects
 
 Aggregations - use the common dataframe as a base/input to aggregate it in the following ways:
 
