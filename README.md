@@ -86,4 +86,5 @@ https://github.com/evoisec/sensor-data-analytics/tree/master/data
 
 The rest of the Functionality of the solution is implemented with Spark/Databricks ETL Jobs written in scala
 
+the spark scala jobs code will be provided in Phase 2 of the assignment
 https://github.com/evoisec/sensor-data-analytics/tree/master/src/main/scala
