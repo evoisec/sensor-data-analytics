@@ -4,11 +4,21 @@ import sys, os
 import numpy
 import configparser
 import csv
+import logging
+
+log = logging.getLogger(__name__)
+log.setLevel(logging.DEBUG)
+
+stream = logging.StreamHandler()
+stream.setLevel(logging.INFO)
+streamformat = logging.Formatter("%(asctime)s:%(levelname)s:%(message)s")
+stream.setFormatter(streamformat)
+log.addHandler(stream)
 
 config = configparser.ConfigParser()
 config.read(os.path.dirname(__file__) + '\\bde.ini')
-print(config["DEFAULT"]["BinaryFilePath"])
-print(config["DEFAULT"]["CSVOutputFolder"])
+log.info(config["DEFAULT"]["BinaryFilePath"])
+log.info(config["DEFAULT"]["CSVOutputFolder"])
 
 pickle_file = config["DEFAULT"]["BinaryFilePath"]
 csv_output_folder = config["DEFAULT"]["CSVOutputFolder"]
@@ -50,12 +60,14 @@ def main():
         print(x)
     print(label.ndim)
 
-    #for x in label:
-        #print(x)
-
     write_1d_csv("\\LABEL.csv", "label", label)
 
     sys.exit(0)
+
+
+
+
+
 
     print(sensor_dict[str.encode("signal")][str.encode("chest")][str.encode("ACC")])
     print(type(sensor_dict[str.encode("signal")][str.encode("chest")][str.encode("ACC")]))
