@@ -20,14 +20,14 @@ The presence of several CORRELATED, different, sensor signal, time series datase
 
 This would require methods / algorithms for Data Indexing and Joining 
 
-# Cross Dataset Indexing - Indexing/Synchronization/Join Across Datasets
+#### Cross Dataset Indexing - Indexing/Synchronization/Join Across Datasets
 
 MAIN INDEX - The Heart Rate (as the key subject of research/"business analytics" here, due to the nature of PPG) is going to be used as the Ground Truth or will provide the Main Index 
 
-# Internal Dataset Indexing - Indexing within Single Dataset
+#### Internal Dataset Indexing - Indexing within Single Dataset
 
 Then, there is a need for Data Indexing method/algorithm within each sensor signal timeseries dataset 
 
-### System Architecture
+## System Architecture
 
-## Binary Data Extractor
+### Binary Data Extractor
