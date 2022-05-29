@@ -34,7 +34,7 @@ MAIN INDEX - The Heart Rate (as the key subject of research/"business analytics"
 
 #### Internal Dataset Indexing - Indexing within Single Dataset
 
-Then, there is a need for Data Indexing method/algorithm within each sensor signal timeseries dataset 
+Then, there is a need for Data Indexing method/algorithm within each sensor signal timeseries dataset. As that internal index, would then be further transformed and aligned with the MAIN INDEX 
 
 ## System Architecture
 
