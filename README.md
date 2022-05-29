@@ -78,6 +78,10 @@ This is a data pre-processing step
 
 https://github.com/evoisec/sensor-data-analytics/tree/master/src/main/python 
 
+The extracted data is available in:
+
+https://github.com/evoisec/sensor-data-analytics/tree/master/data
+
 ### Spark/Databricks ETL and Analytics Pipeline Jobs
 
 The rest of the Functionality of the solution is implemented with Spark/Databricks ETL Jobs written in scala
