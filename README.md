@@ -12,7 +12,7 @@ a) Activity Labels - used to enrich/tag the Sensor Signal Timeseries data points
 
 b) Test Subject Anthropometric Data and Test Subject ID
 
-## Data Analysis
+## Data Model Analysis
 
 ### Data Indexing/Positioning inside Dataset, Dataset Synchronization and Dataset Join Algorithms 
 
