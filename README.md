@@ -78,7 +78,7 @@ This is a data pre-processing step
 
 https://github.com/evoisec/sensor-data-analytics/tree/master/src/main/python 
 
-The extracted data is available in:
+The extracted data is available as CSV in:
 
 https://github.com/evoisec/sensor-data-analytics/tree/master/data
 
