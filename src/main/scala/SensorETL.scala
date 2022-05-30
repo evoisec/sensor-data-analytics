@@ -8,9 +8,9 @@ object SensorETL {
 
     val spark = SparkSession.builder.master("local[*]").appName("Sensor Data ETL").getOrCreate()
 
-    val tsHRECGMainIndexDF = spark.read.option("header", "true").csv(tsIndexFilePath)
+    val tsHrEcgMainIndexDF = spark.read.option("header", "true").csv(tsIndexFilePath)
 
-    tsHRECGMainIndexDF.show()
+    tsHrEcgMainIndexDF.show()
 
     spark.stop()
 
