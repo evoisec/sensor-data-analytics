@@ -2,6 +2,8 @@ import org.apache.spark.sql.SparkSession
 
 object SensorETL {
 
+  //sss
+
   def main(args: Array[String]): Unit = {
 
     val logFile = "E:\\CV\\d.txt" // Should be some file on your system
