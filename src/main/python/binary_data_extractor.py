@@ -100,6 +100,16 @@ def extract_activity(sensor_dict):
 
     write_1d_csv("\\PKL-ACTIVITY-ENHANCED-TS.csv", "activity", activity,True)
 
+def extract_ecg(sensor_dict):
+
+    print(sensor_dict[str.encode("signal")][str.encode("chest")][str.encode("ECG")])
+    print(type(sensor_dict[str.encode("signal")][str.encode("chest")][str.encode("ECG")]))
+
+    ECG = sensor_dict[str.encode("signal")][str.encode("chest")][str.encode("ECG")]
+    print(ECG.shape)
+    print(ECG.ndim)
+
+    write_1d_csv("\\PKL-RBAN-ECG.csv", "ecg", ECG,True)
 
 def main():
 
@@ -112,9 +122,10 @@ def main():
         print(key, value)
         print(sensor_dict[key])
 
-    extract_label(sensor_dict)
-    extract_acc(sensor_dict)
-    extract_activity(sensor_dict)
+    #extract_label(sensor_dict)
+    #extract_acc(sensor_dict)
+    #extract_activity(sensor_dict)
+    extract_ecg(sensor_dict)
 
 if __name__ == '__main__':
     main()
