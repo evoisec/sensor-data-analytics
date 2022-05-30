@@ -2,11 +2,11 @@ import org.apache.spark.sql.SparkSession
 
 object SensorETL {
 
-  //sss
+  //ssss
 
   def main(args: Array[String]): Unit = {
 
-    val logFile = "E:\\CV\\d.txt" // Should be some file on your system
+    val logFile = "E:\\CV\\d.txt" // Should be some file on your  system
     val spark = SparkSession.builder.master("local[*]").appName("Sensor Data ETL").getOrCreate()
     val logData = spark.read.textFile(logFile).cache()
     val numAs = logData.filter(line => line.contains("a")).count()
