@@ -17,5 +17,5 @@ val sparkVersion = "3.2.1"
 
 //libraryDependencies += "org.apache.spark" %% "spark-sql" % "3.2.1"
 
-libraryDependencies += "org.apache.spark" %% "spark-core" % sparkVersion % "provided"
-libraryDependencies += "org.apache.spark" %% "spark-sql" % sparkVersion % "provided"
+libraryDependencies += "org.apache.spark" %% "spark-core" % sparkVersion
+libraryDependencies += "org.apache.spark" %% "spark-sql" % sparkVersion

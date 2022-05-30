@@ -2,16 +2,16 @@ import org.apache.spark.sql.SparkSession
 
 object SensorETL {
 
-  //ssss
-
   def main(args: Array[String]): Unit = {
 
-    val logFile = "E:\\CV\\d.txt"
+    val tsIndexFilePath = "E:\\project\\data\\PPG_FieldStudy\\CSV\\PKL-ECG-LABEL-MAIN-INDEX-INDEXED.csv"
+
     val spark = SparkSession.builder.master("local[*]").appName("Sensor Data ETL").getOrCreate()
-    val logData = spark.read.textFile(logFile).cache()
-    val numAs = logData.filter(line => line.contains("a")).count()
-    val numBs = logData.filter(line => line.contains("b")).count()
-    println(s"Lines with a: $numAs, Lines with b: $numBs")
+
+    val tsHRECGMainIndexDF = spark.read.option("header", "true").csv(tsIndexFilePath)
+
+    tsHRECGMainIndexDF.show()
+
     spark.stop()
 
   }
