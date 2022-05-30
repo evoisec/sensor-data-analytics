@@ -15,6 +15,11 @@ object SensorETL {
     tsHrEcgMainIndexDF.show()
     tsActivityEnhDF.show()
 
+
+    tsHrEcgMainIndexDF.join(tsActivityEnhDF, tsHrEcgMainIndexDF("emp_dept_id") ===  deptDF("dept_id"),"inner")
+      .show(false)
+
+
     spark.stop()
 
   }
