@@ -15,10 +15,9 @@ object SensorETL {
     tsHrEcgMainIndexDF.show()
     tsActivityEnhDF.show()
 
+    val mainDF = tsHrEcgMainIndexDF.join(tsActivityEnhDF, tsHrEcgMainIndexDF("ts_seq_num") ===  tsActivityEnhDF("main_index"),"inner")
 
-    tsHrEcgMainIndexDF.join(tsActivityEnhDF, tsHrEcgMainIndexDF("emp_dept_id") ===  deptDF("dept_id"),"inner")
-      .show(false)
-
+    mainDF.show()
 
     spark.stop()
 
