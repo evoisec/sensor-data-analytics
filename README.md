@@ -84,7 +84,7 @@ textual description can be provided as well in a real project
 
 ## Use Case Scenarios and Functional Architecture 
 
-Export the timeseries from the binary python dictionary dataset 
+Export ib csv, the timeseries which reside in the binary (serialized) python dictionary dataset in pickle format - these the timeseries from the ResBAN chest device. They are also available in h5 serialized format. The pickle binary file, however contains some other valuable timeseries such as the ECG Ground Truth, which will be exported yo csv as well.   
 
 Perform internal, sensor timeseries indexing and then derive and add the MAIN/CROSS-DATASET INDEX for each timeseries. This requires strictly, sequentially ordered data point processing
 
@@ -106,7 +106,7 @@ Machine Learning Analytics - fit linear regression and use the learned coefficie
 
 ### Binary Data Extractor
 
-The extraction of timeseries datasets from Python binary files in pickle format (Serialized python dictionary object) to CSV files is performed by (non-spark) Python ETL Pipeline
+The extraction (not all timeseries are in csv format) of timeseries datasets from Python binary files in pickle format (Serialized python dictionary object) to CSV files is performed by (non-spark) Python ETL Pipeline
 
 This is a data pre-processing step
 
