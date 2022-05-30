@@ -124,7 +124,7 @@ def extract_resp(sensor_dict):
 
 def main():
 
-    # this step is required due to  incompatibility of pickle objects created with python 2
+    # this step is required due to  incompatibility of pickle objects  created with python 2
     with open(pickle_file, 'rb') as f:
         sensor_dict = pickle.load(f, encoding="bytes")
 
