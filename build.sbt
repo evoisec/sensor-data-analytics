@@ -7,7 +7,7 @@ lazy val root = (project in file("."))
     name := "s1"
   )
 
-name := "Simple Project"
+name := "Sensor Data Analytics"
 
 version := "1.0"
 
