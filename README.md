@@ -54,6 +54,8 @@ for example if the sampling rate is 2 Hz, then the first 2 data points in the ti
 
 the next 2 data points will be indexed with 2 (as having occurred during second 2) and so on and so forth 
 
+finally, each data point will have a sequence number (#) attribute 
+
 |#| Timeseries Data Point Value | Internal Index |
 |--| -- | ------------- |
 |1| 12 | 1  |
@@ -63,16 +65,16 @@ the next 2 data points will be indexed with 2 (as having occurred during second 
 |5| 465 | 3  |
 |6| 106 | 3  |
 
-then the mean of all timeseries datapoints for the same Internal Index will be calculated to produce a derived timeseries with single data point for the same index value
+The Main Index will be assigned at every 2 seconds as monotonically increasing value to macth the ECG Main Index 2 seconds shift step of the 8 seconds sliding window
 
-|#| Timeseries Data Point Value | Internal Index |
-|--| -- | ------------- |
-|1| 13 | 1  |
-|2| 27.5 | 2  |
-|5| 285.5 | 3  |
-
-then calculate the mean of the derived timeseries values, given on a sliding window of 8 seconds, shifted with 2 seconds. This would produce yet another derived timeseries, which would be aligned with the Main Index 
-
+|#| Timeseries Data Point Value | Internal Index | Main Index |
+|--| -- | ------------- |-------------|
+|1| 12 | 1  |1|
+|2| 14 | 1  |1|
+|3| 45 | 2  |1|
+|4| 10 | 2  |1|
+|5| 465 | 3  |2|
+|6| 106 | 3  |2|
 
 ## Physical Dataset Catalogue
 
@@ -120,7 +122,7 @@ Performs internal, sensor timeseries indexing and then derive and add the MAIN/C
 
 Hence this system component will be implemented with (non-spark) Python ETL Pipeline operating in a strictly sequential fashion to preserve the order of timeseries data points during the indexing. Spark/Databricks is a parallel compute, distributed data processing framework, which distributes data points/records on different cluster nodes where their processing can and will get out of (strictly sequential) order - hence not appropriate for the kind of indexing required here  
 
-https://github.com/evoisec/sensor-data-analytics/tree/master/src/main/python 
+https://github.com/evoisec/sensor-data-analytics/tree/master/src/main/python
 
 ### Spark/Databricks ETL and Analytics Pipeline Jobs
 
