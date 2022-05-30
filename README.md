@@ -63,6 +63,17 @@ the next 2 data points will be indexed with 2 (as having occurred during second 
 |5| 465 | 3  |
 |6| 106 | 3  |
 
+then the mean of all timeseries datapoints for the same Internal Index will be calculated to produce a derived timeseries with single data point for the same index value
+
+|#| Timeseries Data Point Value | Internal Index |
+|--| -- | ------------- |
+|1| 13 | 1  |
+|2| 27.5 | 2  |
+|5| 285.5 | 3  |
+
+then calculate the mean of the derived timeseries values, given on a sliding window of 8 seconds, shifted with 2 seconds. This would produce yet another derived timeseries, which would be aligned with the Main Index 
+
+
 ## Physical Dataset Catalogue
 
 https://github.com/evoisec/sensor-data-analytics/blob/master/doc/data-model2.jpg
