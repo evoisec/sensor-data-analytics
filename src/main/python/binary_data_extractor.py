@@ -111,6 +111,17 @@ def extract_ecg(sensor_dict):
 
     write_1d_csv("\\PKL-RBAN-ECG.csv", "ecg", ECG,True)
 
+def extract_resp(sensor_dict):
+
+    print(sensor_dict[str.encode("signal")][str.encode("chest")][str.encode("Resp")])
+    print(type(sensor_dict[str.encode("signal")][str.encode("chest")][str.encode("Resp")]))
+
+    RESP = sensor_dict[str.encode("signal")][str.encode("chest")][str.encode("Resp")]
+    print(RESP.shape)
+    print(RESP.ndim)
+
+    write_1d_csv("\\PKL-RBAN-RESP.csv", "resp", RESP,True)
+
 def main():
 
     # this step is required due to  incompatibility of pickle objects created with python 2
@@ -125,7 +136,8 @@ def main():
     #extract_label(sensor_dict)
     #extract_acc(sensor_dict)
     #extract_activity(sensor_dict)
-    extract_ecg(sensor_dict)
+    #extract_ecg(sensor_dict)
+    extract_resp(sensor_dict)
 
 if __name__ == '__main__':
     main()
