@@ -42,5 +42,38 @@ def main():
                     record.append(line[0])
                     csv_writer.writerow(record)
 
+    with open('E:\project\data\PPG_FieldStudy\CSV\PKL-ACTIVITY-ENHANCED-TS.csv', encoding="utf8") as f:
+        with open('E:\project\data\PPG_FieldStudy\CSV\PKL-ACTIVITY-ENHANCED-TS-INDEXED.csv', 'w', encoding='UTF8',newline='') as ff:
+            csv_writer = csv.writer(ff)
+            csv_reader = csv.reader(f)
+
+            header = ["ts_seq_num", "activity", "internal_index"]
+
+            # write the header
+            csv_writer.writerow(header)
+
+            internal_index = 1
+
+            for line_no, line in enumerate(csv_reader, 1):
+                if line_no == 1:
+                    print('Header:')
+                    print(line)  # header
+                    print('Data:')
+                else:
+                    print(line_no-1)
+                    print(line)  # data
+                    print(line[0])
+
+                    ln = line_no-1
+                    record =[]
+                    record.append(ln)
+                    record.append(line[0])
+                    record.append(internal_index)
+
+                    if ln % 4 == 0:
+                        internal_index = internal_index +1
+
+                    csv_writer.writerow(record)
+
 if __name__ == '__main__':
     main()
