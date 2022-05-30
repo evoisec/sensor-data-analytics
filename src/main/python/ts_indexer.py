@@ -47,12 +47,15 @@ def main():
             csv_writer = csv.writer(ff)
             csv_reader = csv.reader(f)
 
-            header = ["ts_seq_num", "activity", "internal_index"]
+            header = ["ts_seq_num", "activity", "internal_index", "main_index"]
 
             # write the header
             csv_writer.writerow(header)
 
             internal_index = 1
+            old_internal_index = 1
+            main_index = 1
+            ichanged = False
 
             for line_no, line in enumerate(csv_reader, 1):
                 if line_no == 1:
@@ -69,9 +72,16 @@ def main():
                     record.append(ln)
                     record.append(line[0])
                     record.append(internal_index)
+                    record.append(main_index)
 
                     if ln % 4 == 0:
-                        internal_index = internal_index +1
+                        internal_index = internal_index + 1
+                        ichanged = True
+
+                    if internal_index % 2 != 0 and ichanged:
+                        main_index = main_index + 1
+                        ichanged = False
+
 
                     csv_writer.writerow(record)
 
