@@ -15,6 +15,10 @@ object SensorETL {
     tsHrEcgMainIndexDF.show()
     tsActivityEnhDF.show()
 
+    val mainDF = tsHrEcgMainIndexDF.join(tsActivityEnhDF, tsHrEcgMainIndexDF("ts_seq_num") ===  tsActivityEnhDF("main_index"),"inner")
+
+    mainDF.show()
+
     spark.stop()
 
   }
