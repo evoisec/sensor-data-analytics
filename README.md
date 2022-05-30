@@ -59,7 +59,7 @@ the next 2 data points will be indexed with 2 (as having occurred during second 
 |1| 12 | 1  |
 |2| 14 | 1  |
 |3| 45 | 2  |
-|4| 0 | 2  |
+|4| 10 | 2  |
 
 ## Physical Dataset Catalogue
 
