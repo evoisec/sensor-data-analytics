@@ -133,10 +133,10 @@ def main():
         print(key, value)
         print(sensor_dict[key])
 
-    #extract_label(sensor_dict)
-    #extract_acc(sensor_dict)
-    #extract_activity(sensor_dict)
-    #extract_ecg(sensor_dict)
+    extract_label(sensor_dict)
+    extract_acc(sensor_dict)
+    extract_activity(sensor_dict)
+    extract_ecg(sensor_dict)
     extract_resp(sensor_dict)
 
 if __name__ == '__main__':
