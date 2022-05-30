@@ -80,7 +80,7 @@ The Main Index will be assigned at every 2 seconds as monotonically increasing v
 
 https://github.com/evoisec/sensor-data-analytics/blob/master/doc/data-model2.jpg
 
-textual description can be provided as well in a real project
+in a real project, textual description can be provided as well 
 
 ## Use Case Scenarios and Functional Architecture 
 
