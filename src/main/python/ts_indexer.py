@@ -53,7 +53,6 @@ def main():
             csv_writer.writerow(header)
 
             internal_index = 1
-            old_internal_index = 1
             main_index = 1
             ichanged = False
 
