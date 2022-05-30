@@ -86,7 +86,6 @@ def extract_activity(sensor_dict):
     print(sensor_dict[str.encode("activity")])
     activity = sensor_dict[str.encode("activity")]
     for x in activity:
-        #print("dim")
         for y in x:
             print(y)
     print(activity.shape)

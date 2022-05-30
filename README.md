@@ -48,11 +48,15 @@ Then, there is a need for Data Indexing method/algorithm within each sensor sign
 
 ## Physical Dataset Catalogue
 
+https://github.com/evoisec/sensor-data-analytics/blob/master/doc/data-model2.jpg
+
+textual description can be provided as well in a real project
+
 ## Use Case Scenarios and Functional Architecture 
 
 Export the timeseries from the binary python dictionary dataset 
 
-Perform internal, sensor timeseries indexing and then derive and add the MAIN/CROSS-DATASET INDEX for each timeseries
+Perform internal, sensor timeseries indexing and then derive and add the MAIN/CROSS-DATASET INDEX for each timeseries. This requires strictly, sequentially ordered data point processing
 
 Build a common dataframe with all signal timeseries (averaged by using a sliding window of 8 seconds, shifted by 2 seconds) for all test subjects, enriched with the Reference Data about the subjects and the Activities performed by the subjects 
 
@@ -81,6 +85,14 @@ https://github.com/evoisec/sensor-data-analytics/tree/master/src/main/python
 The extracted data is available as CSV in:
 
 https://github.com/evoisec/sensor-data-analytics/tree/master/data
+
+### Timeseries Sequential Indexer
+
+Performs internal, sensor timeseries indexing and then derive and add the MAIN/CROSS-DATASET INDEX for each timeseries. This requires strictly, sequentially ordered data point processing
+
+Hence this system component will be implemented with Python ETL Pipeline operating in a strictly sequential fashion to preserve the order of timeseries data points during the indexing 
+
+https://github.com/evoisec/sensor-data-analytics/tree/master/src/main/python 
 
 ### Spark/Databricks ETL and Analytics Pipeline Jobs
 
