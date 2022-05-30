@@ -104,7 +104,7 @@ def main():
 
     extract_label(sensor_dict)
     extract_acc(sensor_dict)
-    #extract_activity(sensor_dict)
+    extract_activity(sensor_dict)
 
 if __name__ == '__main__':
     main()
