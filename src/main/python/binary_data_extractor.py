@@ -1,6 +1,6 @@
 import pickle
 import sys, os
-# required due to the presence of numpy arrays in the dictionary data structure
+# required due to the presence of numpy arrays in  the dictionary data structure
 import numpy
 import configparser
 import csv
@@ -38,6 +38,24 @@ def write_1d_csv(file_name, column_name, data):
             # write the data
             writer.writerow(record)
 
+def write_3d_csv(file_name, column_names, data):
+
+    with open(csv_output_folder + file_name, 'w', encoding='UTF8', newline='') as f:
+        writer = csv.writer(f)
+
+        header = column_names
+
+        # write the header
+        writer.writerow(header)
+
+        record =[]
+        for e in data:
+            for ee in e:
+                record.append(ee)
+            # write the data
+            writer.writerow(record)
+            record = []
+
 def extract_label(sensor_dict):
 
     print(type(sensor_dict[str.encode("label")]))
@@ -50,29 +68,9 @@ def extract_label(sensor_dict):
         print(x)
     print(label.ndim)
 
-    write_1d_csv("\\LABEL.csv", "label", label)
+    write_1d_csv("\\PKL-ECG-LABEL-MAIN-INDEX.csv", "label", label)
 
-def main():
-
-    # this step is required due to incompatibility of pickle objects created with python 2
-    with open(pickle_file, 'rb') as f:
-        sensor_dict = pickle.load(f, encoding="bytes")
-
-    # inspect/reverse engineer the internal structure and content of the dictionary dataset
-    for key, value in sensor_dict.items():
-        print(key, value)
-        print(sensor_dict[key])
-
-    extract_label(sensor_dict)
-
-
-
-    sys.exit(0)
-
-
-
-
-
+def extract_acc(sensor_dict):
 
     print(sensor_dict[str.encode("signal")][str.encode("chest")][str.encode("ACC")])
     print(type(sensor_dict[str.encode("signal")][str.encode("chest")][str.encode("ACC")]))
@@ -81,9 +79,9 @@ def main():
     print(ACC.shape)
     print(ACC.ndim)
 
+    write_3d_csv("\\PKL-RBAN-ACC.csv", ["x","y", "z"], ACC)
 
-
-
+def extract_activity(sensor_dict):
 
     print(sensor_dict[str.encode("activity")])
     activity = sensor_dict[str.encode("activity")]
@@ -93,6 +91,20 @@ def main():
             print(y)
     print(activity.shape)
 
+def main():
+
+    # this step is required due to  incompatibility of pickle objects created with python 2
+    with open(pickle_file, 'rb') as f:
+        sensor_dict = pickle.load(f, encoding="bytes")
+
+    # inspect/reverse engineer the internal structure and content of the dictionary dataset
+    for key, value in sensor_dict.items():
+        print(key, value)
+        print(sensor_dict[key])
+
+    #extract_label(sensor_dict)
+    extract_acc(sensor_dict)
+    #extract_activity(sensor_dict)
 
 if __name__ == '__main__':
     main()
