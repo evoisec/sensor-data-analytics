@@ -1,0 +1,1 @@
+This folder contains CSV datasets extracted from the binary python pickle datasets S[subjectID].pkl. These datasets are not available as CSV out of the box. They have been extracted with the Binary Data Extractor ETL pipeline https://github.com/evoisec/sensor-data-analytics/blob/master/src/main/python/binary_data_extractor.py 
