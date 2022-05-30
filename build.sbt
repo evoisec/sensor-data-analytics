@@ -13,4 +13,9 @@ version := "1.0"
 
 scalaVersion := "2.12.15"
 
-libraryDependencies += "org.apache.spark" %% "spark-sql" % "3.2.1"
+val sparkVersion = "3.2.1"
+
+//libraryDependencies += "org.apache.spark" %% "spark-sql" % "3.2.1"
+
+libraryDependencies += "org.apache.spark" %% "spark-core" % sparkVersion % "provided"
+libraryDependencies += "org.apache.spark" %% "spark-sql" % sparkVersion % "provided"
