@@ -48,7 +48,7 @@ Then, there is a need for Data Indexing method/algorithm within each sensor sign
 
 all timeseries datasets for the same subject/person have the same start time, the data points can be indexed as offsets from the start time 
 
-sampling-rate(Hz) = number of timeseries data points per 1 second   
+secondly the following formula will be used: sampling-rate(Hz) = number of timeseries data points per 1 second   
 
 for example if the sampling rate is 2 Hz, then the first 2 data points in the timeseries will be indexed with the key 1. This would signify that these data points were generated during second 1 (as offest from the start)
 
@@ -65,7 +65,7 @@ finally, each data point will have a sequence number (#) attribute
 |5| 465 | 3  |
 |6| 106 | 3  |
 
-The Main Index will be assigned at every 2 seconds as monotonically increasing value to macth the ECG Main Index 2 seconds shift step of the 8 seconds sliding window
+The Main Index will be assigned at every 2 seconds as monotonically increasing value to match the ECG Main Index, 2 seconds shift step of the 8 seconds sliding window
 
 |#| Timeseries Data Point Value | Internal Index | Main Index |
 |--| -- | ------------- |-------------|
