@@ -54,12 +54,14 @@ for example if the sampling rate is 2 Hz, then the first 2 data points in the ti
 
 the next 2 data points will be indexed with 2 (as having occurred during second 2) and so on and so forth 
 
-|#| Timeseries Data Point Value | Index |
+|#| Timeseries Data Point Value | Internal Index |
 |--| -- | ------------- |
 |1| 12 | 1  |
 |2| 14 | 1  |
 |3| 45 | 2  |
 |4| 10 | 2  |
+|5| 465 | 3  |
+|6| 106 | 3  |
 
 ## Physical Dataset Catalogue
 
