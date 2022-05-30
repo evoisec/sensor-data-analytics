@@ -23,7 +23,7 @@ log.info(config["DEFAULT"]["CSVOutputFolder"])
 pickle_file = config["DEFAULT"]["BinaryFilePath"]
 csv_output_folder = config["DEFAULT"]["CSVOutputFolder"]
 
-def write_1d_csv(file_name, column_name, data):
+def write_1d_csv(file_name, column_name, data, nested_1darray):
 
     with open(csv_output_folder + file_name, 'w', encoding='UTF8', newline='') as f:
         writer = csv.writer(f)
@@ -33,10 +33,20 @@ def write_1d_csv(file_name, column_name, data):
         # write the header
         writer.writerow(header)
 
-        for e in data:
-            record = [e]
-            # write the data
-            writer.writerow(record)
+        if nested_1darray:
+            record = []
+            for e in data:
+                for ee in e:
+                    record.append(ee)
+                # write the data
+                writer.writerow(record)
+                record = []
+
+        else:
+            for e in data:
+                record = [e]
+                # write the data
+                writer.writerow(record)
 
 def write_3d_csv(file_name, column_names, data):
 
@@ -68,7 +78,7 @@ def extract_label(sensor_dict):
         print(x)
     print(label.ndim)
 
-    write_1d_csv("\\PKL-ECG-LABEL-MAIN-INDEX.csv", "label", label)
+    write_1d_csv("\\PKL-ECG-LABEL-MAIN-INDEX.csv", "label", label,False)
 
 def extract_acc(sensor_dict):
 
@@ -85,10 +95,11 @@ def extract_activity(sensor_dict):
 
     print(sensor_dict[str.encode("activity")])
     activity = sensor_dict[str.encode("activity")]
-    for x in activity:
-        for y in x:
-            print(y)
+
     print(activity.shape)
+
+    write_1d_csv("\\PKL-ACTIVITY-ENHANCED-TS.csv", "activity", activity,True)
+
 
 def main():
 
@@ -101,8 +112,8 @@ def main():
         print(key, value)
         print(sensor_dict[key])
 
-    #extract_label(sensor_dict)
-    #extract_acc(sensor_dict)
+    extract_label(sensor_dict)
+    extract_acc(sensor_dict)
     extract_activity(sensor_dict)
 
 if __name__ == '__main__':
