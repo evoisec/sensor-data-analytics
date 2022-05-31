@@ -15,10 +15,10 @@ log.addHandler(stream)
 config = configparser.ConfigParser()
 config.read(os.path.dirname(__file__) + '\\tsi.ini')
 
-def main():
+def index_label():
 
-    with open('E:\project\data\PPG_FieldStudy\CSV\PKL-ECG-LABEL-MAIN-INDEX.csv', encoding="utf8") as f:
-        with open('E:\project\data\PPG_FieldStudy\CSV\PKL-ECG-LABEL-MAIN-INDEX-INDEXED.csv', 'w', encoding='UTF8',newline='') as ff:
+    with open('E:\project\data\PPG_FieldStudy\S1\S1-PKL-CSV\PKL-ECG-LABEL-MAIN-INDEX.csv', encoding="utf8") as f:
+        with open('E:\project\data\PPG_FieldStudy\S1\S1-PKL-CSV\PKL-ECG-LABEL-MAIN-INDEX-INDEXED.csv', 'w', encoding='UTF8',newline='') as ff:
             csv_writer = csv.writer(ff)
             csv_reader = csv.reader(f)
 
@@ -42,8 +42,10 @@ def main():
                     record.append(line[0])
                     csv_writer.writerow(record)
 
-    with open('E:\project\data\PPG_FieldStudy\CSV\PKL-ACTIVITY-ENHANCED-TS.csv', encoding="utf8") as f:
-        with open('E:\project\data\PPG_FieldStudy\CSV\PKL-ACTIVITY-ENHANCED-TS-INDEXED.csv', 'w', encoding='UTF8',newline='') as ff:
+def index_activity():
+
+    with open('E:\project\data\PPG_FieldStudy\S1\S1-PKL-CSV\PKL-ACTIVITY-ENHANCED-TS.csv', encoding="utf8") as f:
+        with open('E:\project\data\PPG_FieldStudy\S1\S1-PKL-CSV\PKL-ACTIVITY-ENHANCED-TS-INDEXED.csv', 'w', encoding='UTF8',newline='') as ff:
             csv_writer = csv.writer(ff)
             csv_reader = csv.reader(f)
 
@@ -83,6 +85,51 @@ def main():
 
 
                     csv_writer.writerow(record)
+
+def index_ppg_hr():
+
+    with open('E:\project\data\PPG_FieldStudy\S1\S1-PKL-CSV\HR.csv', encoding="utf8") as f:
+        with open('E:\project\data\PPG_FieldStudy\S1\S1-PKL-CSV\PPG-HR-INDEXED.csv', 'w', encoding='UTF8',newline='') as ff:
+            csv_writer = csv.writer(ff)
+            csv_reader = csv.reader(f)
+
+            next(csv_reader)
+
+            header = ["ts_seq_num", "ppg_hr", "internal_index", "main_index"]
+
+            # write the header
+            csv_writer.writerow(header)
+
+            main_index = 1
+
+            for line_no, line in enumerate(csv_reader, 1):
+                if line_no == 1:
+                    print('Header:')
+                    print(line)  # header
+                    print('Data:')
+                else:
+                    print(line_no-1)
+                    print(line)  # data
+                    print(line[0])
+
+                    ln = line_no-1
+                    record =[]
+                    record.append(ln)
+                    record.append(line[0])
+                    record.append(ln)
+                    record.append(main_index)
+
+                    if ln % 2 == 0:
+                        main_index = main_index + 1
+
+                    csv_writer.writerow(record)
+
+
+def main():
+
+    #index_label()
+    #index_activity()
+    index_ppg_hr()
 
 if __name__ == '__main__':
     main()
