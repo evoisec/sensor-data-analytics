@@ -58,8 +58,14 @@ object SensorETL {
     mainDF.show()
 
     //Aggregation - calculate average heart rate (from the ECG sensor) during each Activity Type
-    mainDF.groupBy("activity_name").avg("label").show(true)
-
+    //mainDF.groupBy("activity_name").avg("label").show(true)
+    import org.apache.spark.sql.functions._
+    mainDF.groupBy("activity_name")
+      .agg(
+        avg("label").as("avg_heart_rate"),
+        max("label").as("max_heart_rate"),
+        min("label").as("min_heart_rate"))
+    .show(true)
 
     spark.stop()
 
