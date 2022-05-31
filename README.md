@@ -36,6 +36,7 @@ Reference Data - Provides the Categorical Predictive Variables in the Model
 
 5. Statistical Summaries/Aggregations/Distributions etc providing complementary insights about how to improve the Photoplethysmograph HR device
 
+
 click on the image to enlarge
 
 ![Data Model](https://github.com/evoisec/sensor-data-analytics/blob/master/doc/fo-model.jpg)
