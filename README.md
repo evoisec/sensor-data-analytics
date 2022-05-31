@@ -20,6 +20,12 @@ click on the following image to enlarge it:
 
 ### Front Office Quant Trading / Risk Management, Analytical Model of the Data
 
+Provides the Ground Truth - as the Prediction/Optimization Objective/Variable/Label
+
+Timeseries Data - Provides the Numerical Predictive Variables in the Model
+
+Reference Data - Provides the Categorical Predictive Variables in the Model
+
 1. Predictive / Regression Models, quantifying the influence of each predictive variable on the predictive error when trying to match/fit the ECG HR as close as possible
 
 2. Correlations between input and output variables
