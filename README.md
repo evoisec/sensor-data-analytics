@@ -51,6 +51,10 @@ click on the image to enlarge
 
 ![Data Model](https://github.com/evoisec/sensor-data-analytics/blob/master/doc/fo-model2.jpg)
 
+example of aligned sensor timeseries, produced by spark/databricks job and ready for machine learning modeling 
+
+![Data Model](https://github.com/evoisec/sensor-data-analytics/blob/master/doc/aligned-ts.jpg)
+
 ### Data Indexing/Positioning inside Dataset, Dataset Synchronization and Dataset Join Algorithms 
 
 The "business" analytics objective of the project is improvement of Photoplethysmography (PPG) - optical method widely used nowadays for continuous heart rate monitoring (ie instead of ECG).
