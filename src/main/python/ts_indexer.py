@@ -15,7 +15,7 @@ log.addHandler(stream)
 config = configparser.ConfigParser()
 config.read(os.path.dirname(__file__) + '\\tsi.ini')
 
-def main():
+def index_label():
 
     with open('E:\project\data\PPG_FieldStudy\CSV\PKL-ECG-LABEL-MAIN-INDEX.csv', encoding="utf8") as f:
         with open('E:\project\data\PPG_FieldStudy\CSV\PKL-ECG-LABEL-MAIN-INDEX-INDEXED.csv', 'w', encoding='UTF8',newline='') as ff:
@@ -41,6 +41,8 @@ def main():
                     record.append(line_no-1)
                     record.append(line[0])
                     csv_writer.writerow(record)
+
+def index_activity():
 
     with open('E:\project\data\PPG_FieldStudy\CSV\PKL-ACTIVITY-ENHANCED-TS.csv', encoding="utf8") as f:
         with open('E:\project\data\PPG_FieldStudy\CSV\PKL-ACTIVITY-ENHANCED-TS-INDEXED.csv', 'w', encoding='UTF8',newline='') as ff:
@@ -83,6 +85,13 @@ def main():
 
 
                     csv_writer.writerow(record)
+
+
+def main():
+
+    index_label()
+    index_activity()
+
 
 if __name__ == '__main__':
     main()
