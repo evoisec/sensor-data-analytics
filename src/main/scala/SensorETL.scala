@@ -53,7 +53,7 @@ object SensorETL {
     mainDF = mainDF.crossJoin(subjectRefAntropoDF)
     mainDF.show()
 
-    //enrich with Reference Data about Activity Name
+    //enrich with Reference Data about Activity Names
     mainDF = mainDF.join(activityRefDF, mainDF("activity") ===  activityRefDF("activity_id"),"inner")
     mainDF.show()
 
