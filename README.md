@@ -39,7 +39,7 @@ Reference Data - Provides the Categorical Predictive Variables in the Model
 
 click on the image to enlarge
 
-![Data Model](https://github.com/evoisec/sensor-data-analytics/blob/master/doc/fo-model.jpg)
+![Data Model](https://github.com/evoisec/sensor-data-analytics/blob/master/doc/fo-model2.jpg)
 
 ### Data Indexing/Positioning inside Dataset, Dataset Synchronization and Dataset Join Algorithms 
 
