@@ -32,6 +32,8 @@ Regression Model Equation (cam be implemented with predictive models ranging fro
 
 ECG-HR = a\*PPG-HR + b\*Temperature + c\*RespiratoryRate + 
 
+from a data processing /wrangling point of view, such model (including the following models) would require the alignment and incorporation of all timeseries dataset into a common/joine dataframe
+
 2. Correlations between input and output variables
 
 3. Conditional Probabilities of e.g. the Photoplethysmograph HR being correlated with the ECG HR, subject to e.g. Body Acceleration
