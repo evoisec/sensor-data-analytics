@@ -133,7 +133,7 @@ def index_temp():
 
             next(csv_reader)
 
-            header = ["ts_seq_num", "ppg_hr", "internal_index", "main_index"]
+            header = ["ts_seq_num", "temperature", "internal_index", "main_index"]
 
             # write the header
             csv_writer.writerow(header)
