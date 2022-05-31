@@ -70,13 +70,15 @@ object SensorETL {
       .agg(
         avg("label").as("avg_heart_rate"),
         max("label").as("max_heart_rate"),
-        min("label").as("min_heart_rate"))
+        min("label").as("min_heart_rate"),
+        stddev("label").as("standard_deviation_heart_rate"))
 
     //sorted by subject, by average heart rate
     aggregatedHrDF
       .withColumn("avg_heart_rate",col("avg_heart_rate").cast(IntegerType))
       .withColumn("max_heart_rate",col("max_heart_rate").cast(IntegerType))
       .withColumn("min_heart_rate",col("min_heart_rate").cast(IntegerType))
+      .withColumn("standard_deviation_heart_rate",col("standard_deviation_heart_rate").cast(IntegerType))
       .sort("SUBJECT_ID", "avg_heart_rate")
       .show()
 
