@@ -51,7 +51,7 @@ click on the image to enlarge
 
 ![Data Model](https://github.com/evoisec/sensor-data-analytics/blob/master/doc/fo-model2.jpg)
 
-example of aligned sensor timeseries, produced by spark/databricks job and ready for machine learning modeling 
+example of sensor timeseries aligned through common, main index into single dataframe, produced by spark/databricks job and ready for machine learning modeling and statistical analyses
 
 ![Data Model](https://github.com/evoisec/sensor-data-analytics/blob/master/doc/aligned-ts.jpg)
 
