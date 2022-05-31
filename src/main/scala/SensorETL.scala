@@ -66,16 +66,18 @@ object SensorETL {
 
     //Aggregation - calculate average heart rate (from the ECG sensor) during each Activity Type
     //mainDF.groupBy("activity_name").avg("label").show(true)
-    val aggregatedHrDF = mainDF.groupBy("activity_name")
+    val aggregatedHrDF = mainDF.groupBy("activity_name", "SUBJECT_ID")
       .agg(
         avg("label").as("avg_heart_rate"),
         max("label").as("max_heart_rate"),
         min("label").as("min_heart_rate"))
 
+    //sorted by subject, by average heart rate
     aggregatedHrDF
       .withColumn("avg_heart_rate",col("avg_heart_rate").cast(IntegerType))
       .withColumn("max_heart_rate",col("max_heart_rate").cast(IntegerType))
       .withColumn("min_heart_rate",col("min_heart_rate").cast(IntegerType))
+      .sort("SUBJECT_ID", "avg_heart_rate")
       .show()
 
 
