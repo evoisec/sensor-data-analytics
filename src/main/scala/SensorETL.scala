@@ -8,6 +8,7 @@ object SensorETL {
     val tsIndexFilePath = "E:\\project\\data\\PPG_FieldStudy\\S1\\S1-PKL-CSV\\PKL-ECG-LABEL-MAIN-INDEX-INDEXED.csv"
     val tsActivityFilePath = "E:\\project\\data\\PPG_FieldStudy\\S1\\S1-PKL-CSV\\PKL-ACTIVITY-ENHANCED-TS-INDEXED.csv"
     val tsPpgHrPath = "E:\\project\\data\\PPG_FieldStudy\\S1\\S1-PKL-CSV\\PPG-HR-INDEXED.csv"
+    val tsTempPath = "E:\\project\\data\\PPG_FieldStudy\\S1\\S1-PKL-CSV\\TEMP-INDEXED.csv"
 
     //Reference Datasets
     val subjectRefAntropoPath = "E:\\project\\data\\PPG_FieldStudy\\S1\\S1_quest-transposed.csv"
@@ -35,6 +36,11 @@ object SensorETL {
       .option("header", "true")
       .option("inferSchema", "true")
       .csv(tsPpgHrPath)
+
+    var tsTempIndexDF = spark.read
+      .option("header", "true")
+      .option("inferSchema", "true")
+      .csv(tsTempPath)
 
     val subjectRefAntropoDF = spark.read
       .option("header", "true")
@@ -110,6 +116,10 @@ object SensorETL {
 
     println(tsHrPpgMainIndexDF.count())
     println(tsHrEcgMainIndexDF.count())
+
+    tsTempIndexDF.show()
+    tsTempIndexDF = tsTempIndexDF.groupBy("main_index").avg("temperature").sort("main_index")
+    tsTempIndexDF.show()
 
     spark.stop()
 
