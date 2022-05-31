@@ -20,11 +20,15 @@ click on the following image to enlarge it:
 
 ### Front Office Quant Trading / Risk Management, Analytical Model of the Data
 
-Provides the Ground Truth - as the Prediction/Optimization Objective/Variable/Label
+The datasets can be interpreted and organized along a Predictive/Analytical Model intended to quantify what factors influence the correlation/deviation between ECH HR and PPG HR. As the key objective is getting the PPG HR as close to ECG HR (the ground truth) as possible 
 
-Timeseries Data - Provides the Numerical Predictive Variables in the Model
+The ECH HR provides the Ground Truth ie as the Prediction/Optimization Objective/Variable/Label
+
+Sensor Timeseries Data - Provides the Numerical Predictive Variables in the Model. PPG HR is of key interest in terms of identifying how the rest of the variables influence its correlation / close match with the ECG HR. This would lead to improved PPG devices/sensors - the key objective of the research.
 
 Reference Data - Provides the Categorical Predictive Variables in the Model
+
+The data can then be interpreted and organized as part of the following types of quant models:
 
 1. Predictive / Regression Models, quantifying the influence of each predictive variable on the predictive error when trying to match/fit the ECG HR as close as possible
 
@@ -34,7 +38,7 @@ EcgHR = a\*PpgHR + b\*Temperature + c\*RespiratoryRate + d\*Acceleration + e\*El
 
 from a data processing /wrangling point of view, such model (including the following models) would require the alignment and incorporation of all timeseries dataset into a common/joine dataframe
 
-2. Correlations between input and output variables
+2. Correlations (including Conditional Correlations) between input and output variables
 
 3. Conditional Probabilities of e.g. the Photoplethysmograph HR being correlated with the ECG HR, subject to e.g. Body Acceleration
 
