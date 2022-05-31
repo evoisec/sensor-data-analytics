@@ -14,7 +14,7 @@ object SensorETL {
 
     val spark = SparkSession.builder
       .master("local[*]")
-      .appName("Sensor Data ETL")
+      .appName("Sensor Timeseries Data ETL")
       .getOrCreate()
 
     val tsHrEcgMainIndexDF = spark.read
