@@ -30,7 +30,7 @@ Reference Data - Provides the Categorical Predictive Variables in the Model
 
 Regression Model Equation (cam be implemented with predictive models ranging from standard linear regression all the way up to Markov Models and Deep Learning Neural Networks):
 
-ECG HR = a\*PPG HR + b\*Temperature + c\*RespiratoryRate + 
+ECG-HR = a\*PPG-HR + b\*Temperature + c\*RespiratoryRate + 
 
 2. Correlations between input and output variables
 
