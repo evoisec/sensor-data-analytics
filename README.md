@@ -143,6 +143,8 @@ b) Calculate max temperature by 1 minute time intervals, by subject (subject her
 
 Statistical Analysis - statistical summaries of the timeseries, correlations between the timeseries etc
 
+![Data Model](https://github.com/evoisec/sensor-data-analytics/blob/master/doc/corr.jpg)
+
 Machine Learning Analytics - fit linear regression and use the learned coefficients to assess the influence of all sensor modalities and subject anthropometric attributes on potentially improving the precision of PPG 
 
 ## Technical System Architecture
