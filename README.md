@@ -28,6 +28,10 @@ Reference Data - Provides the Categorical Predictive Variables in the Model
 
 1. Predictive / Regression Models, quantifying the influence of each predictive variable on the predictive error when trying to match/fit the ECG HR as close as possible
 
+Regression Model Equation (cam be implemented with predictive models ranging from standard linear regression all the way up to Markov Models and Deep Learning Neural Networks):
+
+ECG HR = a*PPG HR + b*Temperature + c*RespiratoryRate + 
+
 2. Correlations between input and output variables
 
 3. Conditional Probabilities of e.g. the Photoplethysmograph HR being correlated with the ECG HR, subject to e.g. Body Acceleration
