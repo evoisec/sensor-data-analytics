@@ -13,6 +13,9 @@ object SensorETL {
     val subjectRefAntropoPath = "E:\\project\\data\\PPG_FieldStudy\\S1\\S1_quest-transposed.csv"
     val activityRefPath = "E:\\project\\data\\PPG_FieldStudy\\S1\\ACTIVITY-REFERENCE-DATASET.csv"
 
+    //Output datasets
+    val mainDFPath = "E:\\project\\data\\PPG_FieldStudy\\S1\\S1-PKL-CSV\\mainDF.csv"
+
     val spark = SparkSession.builder
       .master("local[*]")
       .appName("Sensor Timeseries Data ETL")
@@ -70,6 +73,11 @@ object SensorETL {
     //convert the ECG heart rate from double to integer
     mainDF = mainDF.withColumn("label",col("label").cast(IntegerType))
     mainDF.show()
+
+    //write the main dataframe to CSV to serve as input to other ETLs
+    mainDF = mainDF.select("label", "activity", "main_index", "SUBJECT_ID", "AGE",
+      "GENDER", "HEIGHT", "WEIGHT", "SKIN", "SPORT", "activity_name", "activity_id")
+    //mainDF.write.option("header",true).csv(mainDFPath)
 
     //Aggregation - calculate average heart rate (from the ECG sensor) during each Activity Type
     //mainDF.groupBy("activity_name").avg("label").show(true)
