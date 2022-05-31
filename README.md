@@ -122,12 +122,11 @@ Performs internal, sensor timeseries indexing and then derive and add the MAIN/C
 
 Hence this system component will be implemented with (non-spark) Python ETL Pipeline operating in a strictly sequential fashion to preserve the order of timeseries data points during the indexing. Spark/Databricks is a parallel compute, distributed data processing framework, which distributes data points/records on different cluster nodes where their processing can and will get out of (strictly sequential) order - hence not appropriate for the kind of indexing required here  
 
-will be provided in Phase 2 of the assignment
 https://github.com/evoisec/sensor-data-analytics/tree/master/src/main/python
 
 ### Spark/Databricks ETL and Analytics Pipeline Jobs
 
 The rest of the Functionality of the solution is implemented with Spark/Databricks ETL Jobs written in scala
 
-the spark scala jobs code will be provided in Phase 2 of the assignment
+the spark scala jobs code
 https://github.com/evoisec/sensor-data-analytics/tree/master/src/main/scala
