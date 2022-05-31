@@ -14,7 +14,7 @@ object SensorETL {
 
     val spark = SparkSession.builder
       .master("local[*]")
-      .appName("Sensor Data ETL")
+      .appName("Sensor Timeseries Data ETL")
       .getOrCreate()
 
     val tsHrEcgMainIndexDF = spark.read
@@ -43,6 +43,7 @@ object SensorETL {
     subjectRefAntropoDF.show()
     activityRefDF.show()
 
+    //join timeseries datasets, already indexed in a compatible way
     var mainDF = tsHrEcgMainIndexDF.join(tsActivityEnhDF, tsHrEcgMainIndexDF("ts_seq_num") ===  tsActivityEnhDF("main_index"),"inner")
 
     mainDF.printSchema()
@@ -52,10 +53,19 @@ object SensorETL {
     mainDF = mainDF.crossJoin(subjectRefAntropoDF)
     mainDF.show()
 
-    //enrich with Reference Data about Activity Name
+    //enrich with Reference Data about Activity Names
     mainDF = mainDF.join(activityRefDF, mainDF("activity") ===  activityRefDF("activity_id"),"inner")
     mainDF.show()
 
+    //Aggregation - calculate average heart rate (from the ECG sensor) during each Activity Type
+    //mainDF.groupBy("activity_name").avg("label").show(true)
+    import org.apache.spark.sql.functions._
+    mainDF.groupBy("activity_name")
+      .agg(
+        avg("label").as("avg_heart_rate"),
+        max("label").as("max_heart_rate"),
+        min("label").as("min_heart_rate"))
+    .show(true)
 
     spark.stop()
 
