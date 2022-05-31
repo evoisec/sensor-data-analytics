@@ -43,7 +43,8 @@ object SensorETL {
     subjectRefAntropoDF.show()
     activityRefDF.show()
 
-    //join timeseries datasets, already indexed in a compatible way
+    //join/align ("business transaction") sensor timeseries datasets, already indexed in a compatible way during
+    //the pre-processing phase (with python ETL pipelines)
     var mainDF = tsHrEcgMainIndexDF.join(tsActivityEnhDF, tsHrEcgMainIndexDF("ts_seq_num") ===  tsActivityEnhDF("main_index"),"inner")
 
     mainDF.printSchema()
