@@ -6,6 +6,7 @@ object SensorETL {
 
     val tsIndexFilePath = "E:\\project\\data\\PPG_FieldStudy\\S1\\S1-PKL-CSV\\PKL-ECG-LABEL-MAIN-INDEX-INDEXED.csv"
     val tsActivityFilePath = "E:\\project\\data\\PPG_FieldStudy\\S1\\S1-PKL-CSV\\PKL-ACTIVITY-ENHANCED-TS-INDEXED.csv"
+    val subjectAntropoPath = "E:\\project\\data\\PPG_FieldStudy\\S1\\S1_quest.csv"
 
     val spark = SparkSession.builder
       .master("local[*]")
@@ -22,8 +23,14 @@ object SensorETL {
       .option("inferSchema", "true")
       .csv(tsActivityFilePath)
 
+    val subjectAntropoDF = spark.read
+      .option("header", "true")
+      .option("inferSchema", "true")
+      .csv(subjectAntropoPath)
+
     tsHrEcgMainIndexDF.show()
     tsActivityEnhDF.show()
+    subjectAntropoDF.show()
 
     val mainDF = tsHrEcgMainIndexDF.join(tsActivityEnhDF, tsHrEcgMainIndexDF("ts_seq_num") ===  tsActivityEnhDF("main_index"),"inner")
 
