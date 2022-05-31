@@ -100,6 +100,9 @@ object SensorETL {
 
     printf("The Correlation Coefficient between ECG HR and PPG HR = %f", corrDF.stat.corr("label", "avg(ppg_hr)"))
 
+    println(tsHrPpgMainIndexDF.count())
+    println(tsHrEcgMainIndexDF.count())
+
     spark.stop()
 
   }
