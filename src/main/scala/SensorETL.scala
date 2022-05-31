@@ -121,6 +121,11 @@ object SensorETL {
     tsTempIndexDF = tsTempIndexDF.groupBy("main_index").avg("temperature").sort("main_index")
     tsTempIndexDF.show()
 
+    var corrMainDF = corrDF.join(tsTempIndexDF, corrDF("main_index") ===  tsTempIndexDF("main_index"),"inner")
+    corrMainDF.show()
+    corrMainDF = corrMainDF.withColumnRenamed("label","esg_hr").drop("ts_seq_num")
+    corrMainDF.show()
+
     spark.stop()
 
   }
