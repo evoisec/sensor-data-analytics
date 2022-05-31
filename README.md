@@ -76,6 +76,12 @@ The Main Index will be assigned at every 2 seconds as monotonically increasing v
 |5| 465 | 3  |2|
 |6| 106 | 3  |2|
 
+Spark/Databricks Dataframe consisting of joined timeseries datasets (the join leverages the above Timeseries Indexing Model), also enriched with Reference Data about Subjects and Activities
+
+(click on the image to enlarge)
+
+![Spark Dataframe](https://github.com/evoisec/sensor-data-analytics/blob/master/doc/spark-dataframe.jpg)
+
 ## Physical Dataset Catalogue
 
 https://github.com/evoisec/sensor-data-analytics/blob/master/doc/data-model2.jpg
