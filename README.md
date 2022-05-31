@@ -18,7 +18,17 @@ click on the following image to enlarge it:
 
 ## Data Model Analysis
 
-### Front Office Quant Trading / Risk Management Model of the Data
+### Front Office Quant Trading / Risk Management, Analytical Model of the Data
+
+1. Predictive / Regression Models, quantifying the influence of each predictive variable on the predictive error when trying to match/fit the ECG HR as close as possible
+
+2. Correlations between input and output variables
+
+3. Conditional Probabilities of e.g. the Photoplethysmograph HR being correlated with the ECG HR, subject to e.g. Body Acceleration
+
+4. Timeseries Regimes yielding different predictive models
+
+5. Statistical Summaries/Aggregations/Distributions etc providing complementary insights about how to improve the Photoplethysmograph HR device
 
 ![Data Model](https://github.com/evoisec/sensor-data-analytics/blob/master/doc/fo-model.jpg)
 
