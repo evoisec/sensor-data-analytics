@@ -18,6 +18,10 @@ click on the following image to enlarge it:
 
 ## Data Model Analysis
 
+### Front Office Quant Trading / Risk Management Model of the Data
+
+![Data Model](https://github.com/evoisec/sensor-data-analytics/blob/master/doc/fo-model.jpg)
+
 ### Data Indexing/Positioning inside Dataset, Dataset Synchronization and Dataset Join Algorithms 
 
 The "business" analytics objective of the project is improvement of Photoplethysmography (PPG) - optical method widely used nowadays for continuous heart rate monitoring (ie instead of ECG).
