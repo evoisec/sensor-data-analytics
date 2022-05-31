@@ -94,16 +94,13 @@ def index_ppg_hr():
             csv_reader = csv.reader(f)
 
             next(csv_reader)
-            next(csv_reader)
 
             header = ["ts_seq_num", "ppg_hr", "internal_index", "main_index"]
 
             # write the header
             csv_writer.writerow(header)
 
-            internal_index = 1
             main_index = 1
-            ichanged = False
 
             for line_no, line in enumerate(csv_reader, 1):
                 if line_no == 1:
@@ -122,9 +119,8 @@ def index_ppg_hr():
                     record.append(ln)
                     record.append(main_index)
 
-                    if ln % 2 != 0:
-                        internal_index = internal_index + 1
-                        ichanged = True
+                    if ln % 2 == 0:
+                        main_index = main_index + 1
 
                     csv_writer.writerow(record)
 
