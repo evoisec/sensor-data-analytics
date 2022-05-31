@@ -30,6 +30,8 @@ click on the following image to enlarge it:
 
 5. Statistical Summaries/Aggregations/Distributions etc providing complementary insights about how to improve the Photoplethysmograph HR device
 
+click on the image to enlarge
+
 ![Data Model](https://github.com/evoisec/sensor-data-analytics/blob/master/doc/fo-model.jpg)
 
 ### Data Indexing/Positioning inside Dataset, Dataset Synchronization and Dataset Join Algorithms 
