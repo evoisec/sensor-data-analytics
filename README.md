@@ -102,6 +102,10 @@ Aggregations - use the common dataframe as a base/input to aggregate it in the f
 
 a) Calculate min,max,avg,standard deviation of ECG Heart Rate by Subject by Activity
 
+example result produced by the spark job
+
+![Data Model](https://github.com/evoisec/sensor-data-analytics/blob/master/doc/aggregated-hr2.jpg)
+
 b) Calculate max temperature by 1 minute time intervals, by subject (subject here can be viewed as a Client or Trading Desk and 1 minute time period can be viewed as e.g. their VAR for calendar period / as of date) 
 
 Statistical Analysis - statistical summaries of the timeseries, correlations between the timeseries etc
