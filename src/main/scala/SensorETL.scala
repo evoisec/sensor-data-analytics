@@ -57,7 +57,7 @@ object SensorETL {
     mainDF = mainDF.join(activityRefDF, mainDF("activity") ===  activityRefDF("activity_id"),"inner")
     mainDF.show()
 
-    //calculate average heart rate (from the ECG sensor) during each Activity Type
+    //Aggregation - calculate average heart rate (from the ECG sensor) during each Activity Type
     mainDF.groupBy("activity_name").avg("label").show(true)
 
 
