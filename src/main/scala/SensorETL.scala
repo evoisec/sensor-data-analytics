@@ -43,7 +43,8 @@ object SensorETL {
     subjectRefAntropoDF.show()
     activityRefDF.show()
 
-    //join timeseries datasets, already indexed in a compatible way
+    //join/align ("business transaction") sensor timeseries datasets, already indexed in a compatible way during
+    //the pre-processing phase (with python ETL pipelines)
     var mainDF = tsHrEcgMainIndexDF.join(tsActivityEnhDF, tsHrEcgMainIndexDF("ts_seq_num") ===  tsActivityEnhDF("main_index"),"inner")
 
     mainDF.printSchema()
@@ -70,13 +71,15 @@ object SensorETL {
       .agg(
         avg("label").as("avg_heart_rate"),
         max("label").as("max_heart_rate"),
-        min("label").as("min_heart_rate"))
+        min("label").as("min_heart_rate"),
+        stddev("label").as("standard_deviation_heart_rate"))
 
-    //sorted by subject, by average heart rate
+    //The aggregation, sorted by subject, then by average heart rate
     aggregatedHrDF
       .withColumn("avg_heart_rate",col("avg_heart_rate").cast(IntegerType))
       .withColumn("max_heart_rate",col("max_heart_rate").cast(IntegerType))
       .withColumn("min_heart_rate",col("min_heart_rate").cast(IntegerType))
+      .withColumn("standard_deviation_heart_rate",col("standard_deviation_heart_rate").cast(IntegerType))
       .sort("SUBJECT_ID", "avg_heart_rate")
       .show()
 
