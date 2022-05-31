@@ -57,15 +57,27 @@ object SensorETL {
     mainDF = mainDF.join(activityRefDF, mainDF("activity") ===  activityRefDF("activity_id"),"inner")
     mainDF.show()
 
+    import org.apache.spark.sql.types._
+    import org.apache.spark.sql.functions._
+
+    //convert the ECG heart rate from double to integer
+    mainDF = mainDF.withColumn("label",col("label").cast(IntegerType))
+    mainDF.show()
+
     //Aggregation - calculate average heart rate (from the ECG sensor) during each Activity Type
     //mainDF.groupBy("activity_name").avg("label").show(true)
-    import org.apache.spark.sql.functions._
-    mainDF.groupBy("activity_name")
+    val aggregatedHrDF = mainDF.groupBy("activity_name")
       .agg(
         avg("label").as("avg_heart_rate"),
         max("label").as("max_heart_rate"),
         min("label").as("min_heart_rate"))
-    .show(true)
+
+    aggregatedHrDF
+      .withColumn("avg_heart_rate",col("avg_heart_rate").cast(IntegerType))
+      .withColumn("max_heart_rate",col("max_heart_rate").cast(IntegerType))
+      .withColumn("min_heart_rate",col("min_heart_rate").cast(IntegerType))
+      .show()
+
 
     spark.stop()
 
