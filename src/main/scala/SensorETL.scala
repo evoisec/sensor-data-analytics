@@ -1,5 +1,8 @@
 import org.apache.spark.sql.SparkSession
 
+//note: the dataframe.show() statements are part of the current code for easier demonstration of the operation of the program
+//they are not supposed to be part of any production code
+
 object SensorETL {
 
   def main(args: Array[String]): Unit = {
@@ -128,6 +131,11 @@ object SensorETL {
 
     corrMainDF = corrMainDF.withColumnRenamed("label","ecg_hr").drop("ts_seq_num").sort("main_index")
     corrMainDF.show()
+
+    corrMainDF = corrMainDF.withColumn("ecg_hr",col("ecg_hr").cast(IntegerType))
+      .withColumn("avg(ppg_hr)",col("avg(ppg_hr)").cast(IntegerType))
+    corrMainDF.show()
+
 
     spark.stop()
 
