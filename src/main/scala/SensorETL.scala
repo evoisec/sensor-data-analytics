@@ -7,6 +7,7 @@ object SensorETL {
     //"Client Transaction" (sensor timeseries) Datasets
     val tsIndexFilePath = "E:\\project\\data\\PPG_FieldStudy\\S1\\S1-PKL-CSV\\PKL-ECG-LABEL-MAIN-INDEX-INDEXED.csv"
     val tsActivityFilePath = "E:\\project\\data\\PPG_FieldStudy\\S1\\S1-PKL-CSV\\PKL-ACTIVITY-ENHANCED-TS-INDEXED.csv"
+    val tsPpgHrPath = "E:\\project\\data\\PPG_FieldStudy\\S1\\S1-PKL-CSV\\PPG-HR-INDEXED.csv"
 
     //Reference Datasets
     val subjectRefAntropoPath = "E:\\project\\data\\PPG_FieldStudy\\S1\\S1_quest-transposed.csv"
@@ -26,6 +27,11 @@ object SensorETL {
       .option("header", "true")
       .option("inferSchema", "true")
       .csv(tsActivityFilePath)
+
+    var tsHrPpgMainIndexDF = spark.read
+      .option("header", "true")
+      .option("inferSchema", "true")
+      .csv(tsPpgHrPath)
 
     val subjectRefAntropoDF = spark.read
       .option("header", "true")
@@ -83,6 +89,16 @@ object SensorETL {
       .sort("SUBJECT_ID", "avg_heart_rate")
       .show()
 
+
+    tsHrPpgMainIndexDF.show()
+
+    tsHrPpgMainIndexDF = tsHrPpgMainIndexDF.groupBy("main_index").avg("ppg_hr").sort("main_index")
+    tsHrPpgMainIndexDF.show()
+
+    val corrDF = tsHrEcgMainIndexDF.join(tsHrPpgMainIndexDF, tsHrEcgMainIndexDF("ts_seq_num") ===  tsHrPpgMainIndexDF("main_index"),"inner")
+    corrDF.show()
+
+    printf("The Correlation Coefficient between ECG HR and PPG HR = %f", corrDF.stat.corr("label", "avg(ppg_hr)"))
 
     spark.stop()
 
