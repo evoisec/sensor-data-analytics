@@ -4,8 +4,8 @@ object SensorETL {
 
   def main(args: Array[String]): Unit = {
 
-    val tsIndexFilePath = "E:\\project\\data\\PPG_FieldStudy\\CSV\\PKL-ECG-LABEL-MAIN-INDEX-INDEXED.csv"
-    val tsActivityFilePath = "E:\\project\\data\\PPG_FieldStudy\\CSV\\PKL-ACTIVITY-ENHANCED-TS-INDEXED.csv"
+    val tsIndexFilePath = "E:\\project\\data\\PPG_FieldStudy\\S1\\S1-PKL-CSV\\PKL-ECG-LABEL-MAIN-INDEX-INDEXED.csv"
+    val tsActivityFilePath = "E:\\project\\data\\PPG_FieldStudy\\S1\\S1-PKL-CSV\\PKL-ACTIVITY-ENHANCED-TS-INDEXED.csv"
 
     val spark = SparkSession.builder
       .master("local[*]")
