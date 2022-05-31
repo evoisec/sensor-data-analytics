@@ -43,6 +43,7 @@ object SensorETL {
     subjectRefAntropoDF.show()
     activityRefDF.show()
 
+    //join timeseries datasets, already indexed in a compatible way
     var mainDF = tsHrEcgMainIndexDF.join(tsActivityEnhDF, tsHrEcgMainIndexDF("ts_seq_num") ===  tsActivityEnhDF("main_index"),"inner")
 
     mainDF.printSchema()
